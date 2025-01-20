@@ -17,7 +17,5 @@ const func3 = async () => {
 } 
  
 console.log("start", new Date())
-func1()
-func2()
 func3() 
 console.log("end", new Date())
