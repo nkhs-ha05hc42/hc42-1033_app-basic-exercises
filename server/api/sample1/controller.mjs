@@ -24,7 +24,7 @@ const deleteSample1 = (req, res) => {
 const getPathParamSample1 = (req, res) => { 
     res.send( 
         JSON.stringify({ 
-            id: req.query.id, 
+            id: req.params.id, 
             message: "メッセージを取得します", 
         }), 
     ) 
