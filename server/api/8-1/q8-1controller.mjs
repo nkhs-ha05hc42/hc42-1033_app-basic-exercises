@@ -1,6 +1,9 @@
 const postSample1 = (req, res) => { 
-    console.log(req.body) 
-    res.send(JSON.stringify({ status: "success" })) 
+    console.log(req.body)
+    res.send(JSON.stringify({ 
+        status: "OK" , 
+        postcode: "059-0012" 
+    })) 
 } 
 
 const getSample1 = (req, res) => { 
@@ -14,21 +17,19 @@ const getSample1 = (req, res) => {
 
 const putSample1 = (req, res) => { 
     console.log(req.body) 
-    res.send(JSON.stringify({ status: "success" })) 
+    res.send(JSON.stringify({ 
+        status: "OK" , 
+        postcode: "059-0012" 
+    })) 
 }
 
 const deleteSample1 = (req, res) => { 
-    res.send(JSON.stringify({ status: "success", id: req.query.id })) 
+    res.send(JSON.stringify({ 
+        status: "OK" , 
+        code: req.query.code,  
+    }))
 } 
 
-const getPathParamSample1 = (req, res) => { 
-    res.send( 
-        JSON.stringify({ 
-            id: req.query.id, 
-            message: "メッセージを取得します", 
-        }), 
-    ) 
-} 
 
 
 export const q81Controller = { 
@@ -36,5 +37,5 @@ export const q81Controller = {
     getSample1, 
     putSample1,
     deleteSample1,
-    getPathParamSample1, 
+
 } 
