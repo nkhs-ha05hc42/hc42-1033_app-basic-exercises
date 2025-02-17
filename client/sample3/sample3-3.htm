@@ -1,0 +1,44 @@
+!doctype html> 
+<html lang="ja"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <script src="sample3-3.mjs"></script> 
+    <style> 
+      table { 
+        border: 1px solid #808080; 
+        thead { 
+          background-color: aquamarine; 
+        } 
+        tbody { 
+          tr { 
+            border-top: 1px solid #808080; 
+          } 
+        } 
+        td { 
+          padding: 0.5rem 1rem; 
+        } 
+      } 
+      #create-button { 
+        margin: 0.5rem 0; 
+        padding: 0.2rem 2rem; 
+      } 
+    </style> 
+  </head> 
+  <body> 
+    <h1>POSTによる登録サンプル</h1> 
+    <form id="input-form"> 
+            <table> 
+                <tr> 
+                    <th>名前</th> 
+                    <td><input type="text" name="name" /></td> 
+                </tr> 
+                <tr> 
+                    <th>年齢</th> 
+                    <td><input type="number" name="age" /></td> 
+                </tr> 
+            </table> 
+        </form> 
+        <button id="create-button" type="submit">登録</button> 
+    </body> 
+</html> 
