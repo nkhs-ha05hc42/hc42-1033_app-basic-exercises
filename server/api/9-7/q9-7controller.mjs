@@ -5,7 +5,7 @@ import { sample2Model } from "./q9-7model.mjs"
     res.send(JSON.stringify({ status: "success", list: result })) 
 }
 const getOne = async (req, res) => { 
-    const id = req.params.id 
+    const id = parseInt(req.params.id) 
     if (!id) { 
       return res.send(JSON.stringify({ status: "error" })) 
     } 
@@ -17,6 +17,7 @@ const getOne = async (req, res) => {
 } 
 
 const post = async (req, res) => { 
+  const id = req.body.id
   const user_id = req.body.user_id
   const year = req.body.year
   const month = req.body.month 
@@ -27,7 +28,7 @@ const post = async (req, res) => {
   if (!name ) { 
     return res.send(JSON.stringify({ status: "error" })) 
   } 
-  const result = await sample2Model.insertOne(user_id , year , month , day , name , score) 
+  const result = await sample2Model.insertOne(id,user_id , year , month , day , name , score) 
   res.send(JSON.stringify({ status: "success", data: result })) 
 }
 

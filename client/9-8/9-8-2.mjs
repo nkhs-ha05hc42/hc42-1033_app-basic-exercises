@@ -1,26 +1,21 @@
-const viewRecords = [ 
-    { 
-      id: 1, 
-      name: "山田", 
-      age: 23,
-      postcode: "0620055",
-      address:"北海道札幌市",
-      averageScore:81.1, 
+let viewRecords = [] 
+ 
+const loadRecords = async () => { 
+  const fetchResult = await fetch("http://localhost:3000/api/Sample2", { 
+    method: "GET", 
+    headers: { 
+      "Content-Type": "application/json", 
     }, 
-    { 
-        id: 1, 
-        name: "田中", 
-        age: 18,
-        postcode: "0590465",
-        address:"北海道登別市",
-        averageScore:71,
-    },  
-] 
-
-  /** 
-   * ウィンドウ読み込み時の処理 
-   */ 
-  window.onload = () => {
+  }) 
+  const responsce = await fetchResult.json() 
+  if (responsce.status !== "success") { 
+    alert("Error!") 
+    return 
+  } 
+  viewRecords = responsce.list 
+} 
+ 
+const viewTable = () => { 
     const sample3Body = document.getElementById("9-8body");
     sample3Body.innerHTML = "";
     for (const record of viewRecords) {
@@ -49,6 +44,21 @@ const viewRecords = [
 
         const averageScoreTd = document.createElement("td");
         averageScoreTd.appendChild(document.createTextNode(record.averageScore));
-        tr.appendChild(averageScoreTd);
-    } 
+        tr.appendChild(averageScoreTd); 
+  } 
+}
+/** 
+ * ウィンドウ読み込み時の処理 
+ */ 
+window.onload = () => { 
+    const loadButtonElement = document.getElementById("load-button") 
+    loadButtonElement.addEventListener( 
+      "click", 
+      async () => { 
+        await loadRecords() 
+        viewTable() 
+      }, 
+      false, 
+    ) 
+    viewTable() 
 } 

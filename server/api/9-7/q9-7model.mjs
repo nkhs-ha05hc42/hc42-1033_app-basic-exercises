@@ -23,7 +23,7 @@ const selectOne = async (id) => {
   return results.rows.at(0) 
 }
 
-const insertOne = async (user_id , year , month , day , name , score) => { 
+const insertOne = async (id,user_id , year , month , day , name , score) => { 
   const insertQuery = ` 
     INSERT INTO exams( 
       id, 
@@ -45,7 +45,7 @@ const insertOne = async (user_id , year , month , day , name , score) => {
     ) 
     RETURNING *; 
   ` 
-  const result = await query(insertQuery, [user_id , year , month , day , name , score]) 
+  const result = await query(insertQuery, [id,user_id , year , month , day , name , score]) 
   return result.rows.at(0) 
 }
 

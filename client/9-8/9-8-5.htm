@@ -3,7 +3,7 @@
   <head> 
     <meta charset="UTF-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <script src="9-8-1.mjs"></script> 
+    <script src="9-8-5.mjs"></script> 
     <style> 
       table { 
         border: 1px solid #808080; 
@@ -19,30 +19,22 @@
           padding: 0.5rem 1rem; 
         } 
       } 
+      #delete-button { 
+        margin: 0.5rem 0; 
+        padding: 0.2rem 2rem; 
+      } 
     </style> 
   </head> 
   <body> 
-    <table> 
-      <thead> 
+    <h1>DELETEによる削除サンプル</h1> 
+    <form id="target-id-form"> 
+      <table> 
         <tr> 
-          <td>ID</td> 
-          <td>Name</td> 
-          <td>Age</td>
-          <td>postcode</td> 
-          <td>Address</td> 
-          <td>AverageScore</td>
+          <th>対象のID</th> 
+          <td><input type="number" name="id" /></td> 
         </tr> 
-      </thead> 
-      <tbody id="9-8body"> 
-        <tr> 
-          <td></td> 
-          <td></td> 
-          <td></td> 
-          <td></td> 
-          <td></td> 
-          <td></td>
-        </tr> 
-      </tbody> 
-    </table> 
-  </body> 
+      </table>
+    </form> 
+    <button id="delete-button" type="submit">対象の削除</button> 
+    </body> 
 </html> 
